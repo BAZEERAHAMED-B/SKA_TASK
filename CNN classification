@@ -1,0 +1,29 @@
+1A) Train Simple CNN
+python -m task1_classification.train \
+  --model simple_cnn \
+  --epochs 20 \
+  --batch_size 64 \
+  --lr 0.001 \
+  --out_dir reports/task1 \
+  --ckpt_dir models
+1B) Train ResNet18-Small (optional)
+python -m task1_classification.train \
+  --model resnet18_small \
+  --epochs 20 \
+  --batch_size 64 \
+  --lr 0.001 \
+  --out_dir reports/task1_resnet \
+  --ckpt_dir models
+1C) Evaluate best checkpoint
+(Training prints the best checkpoint name, typically models/best.pt)
+python -m task1_classification.eval \
+  --checkpoint models/best.pt \
+  --out_dir reports/task1
+Optional CPU-only evaluation:
+python -m task1_classification.eval \
+  --checkpoint models/best.pt \
+  --out_dir reports/task1 \
+  --cpu_only
+Outputs location:
+ls reports/task1
+ls models
